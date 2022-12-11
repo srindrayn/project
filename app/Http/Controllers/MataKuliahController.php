@@ -17,7 +17,7 @@ class MataKuliahController extends Controller
         //
     }
 
-    //
+    //menambahkan mata kuliah
     public function createMataKuliah(Request $request)
     {
         $matkul = Matakuliah::create([
@@ -31,6 +31,7 @@ class MataKuliahController extends Controller
         ]);
     }
 
+    //menampilkan semua matakuliah
     public function getMataKuliah()
     {
         $matkul = Matakuliah::all();

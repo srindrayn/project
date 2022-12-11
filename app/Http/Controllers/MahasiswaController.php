@@ -18,6 +18,7 @@ class MahasiswaController extends Controller
         //
     }
 
+    //menambahkan mahasiswa
     //'nim', 'nama', 'password', 'angkatan', 'prodiId', 'token',
     public function addMahasiswa(Request $request)
     {
@@ -36,6 +37,7 @@ class MahasiswaController extends Controller
         ]);
     }
 
+    //menampilkan mahasiswa + prodi
     public function getAllMahasiswa()
     {
         // $getMahasiswa=Mahasiswa::all();
@@ -58,6 +60,7 @@ class MahasiswaController extends Controller
     //     ]);
     // }
 
+    //berdasarkan token
     public function getMahasiswabyToken(Request $request)
     {
         $getbyToken = $request->mahasiswa;
@@ -69,6 +72,7 @@ class MahasiswaController extends Controller
         ]);
     }
 
+    //menampilkan mahasiswa + matakuliah + prodi
     public function getByNimm($nim)
     {
         $getbyNIM = Mahasiswa::with('matakuliah', 'prodi')->find($nim);
@@ -79,6 +83,7 @@ class MahasiswaController extends Controller
         ]);
     }
 
+    //menambahkan mata kuliah mahasiswa
     public function addMatkul($nim, $mkId, Request $request)
     {
         if ($request->mahasiswa->nim != $nim) {
@@ -97,6 +102,7 @@ class MahasiswaController extends Controller
         ]);
     }
 
+    //menghapus matakuliah mahasiswa
     public function deleteMatkul($nim, $mkId, Request $request)
     {
         if ($request->mahasiswa->nim != $nim) {

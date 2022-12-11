@@ -33,6 +33,7 @@ class AuthController extends Controller
         return JWT::encode($payload, env('JWT_SECRET'), 'HS256');
     }
 
+    //fungsi registrasi mahasiswa
     public function registrasi(Request $request)
     {
         $nim = $request->nim;
@@ -57,7 +58,7 @@ class AuthController extends Controller
         ]);
     }
 
-    //fungsi login user
+    //fungsi login mahasiswa
     public function login(Request $request)
     {
         $nim = $request->nim;
